@@ -332,4 +332,18 @@
         --[_] EPPPlus referene. Complete references.
         --[_] Server-Side Rendering (SSR) and Static Site Generation (SSG/Prerendering).
         --[_] https://vercel.com/apereznwos-projects/~/integrations
+
 ////////////////////////////////////////////////////////////////////////////////
+// NG BOOTRSAP STRATEGY
+////////////////////////////////////////////////////////////////////////////////
+
+--[_]   TABLE DEMO 
+
+      --[_]  COPY FROM [NG_BOOTSTRAP_DEMO_ENV_TEST] / .
+
+             --[_]  https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_TEST/TableSampleComponent
+      
+             --[_]  https://github.com/aperezNWO/NG_BOOTSTRAP_DEMO_ENV_TEST/blob/main/src/app/_modules/ngbootstrap/table-sample/table-sample.component.ts.
+
+      --[_]  DESTINATION : CSV / XLS DEMO .
+
