@@ -1,6 +1,6 @@
 import { Injectable, NgModule                       } from '@angular/core';
 import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
-import { DatePipe                        } from '@angular/common';
+import { DatePipe, DecimalPipe                        } from '@angular/common';
 import { ServiceWorkerModule             } from '@angular/service-worker';
 import { FormsModule                     } from '@angular/forms';
 import { MatListModule                   } from '@angular/material/list';
@@ -53,6 +53,9 @@ import { MCSDService                     } from './_services/mcsd.service';
 import { _ConfigService                  } from './_services/-config.service';
 import { finalize, tap                   } from 'rxjs';
 import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
+import { NgbHighlight                        } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { DemoService } from './_services/country.service';
 //
 const routes : Routes = [
  
@@ -154,7 +157,7 @@ export class CustomErrorHandler implements ErrorHandler {
             multi     : true
           }
         ],
-        DatePipe,
+        DatePipe, DemoService, DecimalPipe,
     ],
     bootstrap: [AppComponent],
     imports: [
@@ -174,6 +177,9 @@ export class CustomErrorHandler implements ErrorHandler {
         SquareComponent,
         TowerComponent,
         AppRoutingModule,
+        NgbHighlight,
+        NgbPaginationModule, 
+        NgbAlertModule,
         //RouterModule,
         //RouterModule.forRoot(routes, { useHash: true }),
         ServiceWorkerModule.register('ngsw-worker.js', {

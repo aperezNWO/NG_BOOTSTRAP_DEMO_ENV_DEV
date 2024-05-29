@@ -6,6 +6,14 @@ import { Observable                                    } from 'rxjs';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
 import { PersonEntity, SearchCriteria, _languageName   } from '../../../_models/entityInfo.model';
+// NGBOOTSTRAP TABLE
+import { AsyncPipe, DecimalPipe            } from '@angular/common';
+import { QueryList, ViewChildren           } from '@angular/core';
+import { FormsModule                       } from '@angular/forms';
+import { NgbHighlight, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { Country                           } from '../../../_models/country';
+import { NgbdSortableHeader, SortEvent     } from '../../../_services/sortable.directive';
+import { DemoService                       } from 'src/app/_services/country.service';
 //
 @Component({
   selector: 'app-files-generation-csv',
@@ -70,11 +78,26 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
       _P_FECHA_FIN        : ["2022-12-31"  , Validators.required],
     });
     //--------------------------------------------------------------------------
-    // EVENT HANDLERS FORMIULARIO 
+    // ngbootstrap table
     //--------------------------------------------------------------------------
     //
-    constructor(public mcsdService: MCSDService, public formBuilder: FormBuilder, public customErrorHandler : CustomErrorHandler) {
-      //
+    public countries!: Observable<Country[]>;
+	  public total!:     Observable<number>;
+
+  	@ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader> | undefined;
+    //--------------------------------------------------------------------------
+    // EVENT HANDLERS FORMIULARIO 
+    //--------------------------------------------------------------------------
+    constructor( 
+                 public mcsdService        : MCSDService
+               , public formBuilder        : FormBuilder
+               , public customErrorHandler : CustomErrorHandler
+               , public service            : DemoService
+              ) 
+    {
+      // ngbootstrap table 
+      this.countries = service.countries;
+	  	this.total     = service.total;
     }
     //
     ngOnInit(): void {
@@ -304,6 +327,24 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
       this.rf_formSubmit        = true;
       //
       this.SetCSVData();
+    }
+    //--------------------------------------------------------------------------
+    // ngbootstrap table
+    //--------------------------------------------------------------------------
+    onSort(event : Event) {
+
+      /*onSort({ column, direction }: SortEvent) {
+        // resetting other headers
+        this.headers?.forEach((header) => {
+          if (header.sortable !== column) {
+            header.direction = '';
+          }
+        });
+    
+        this.service.sortColumn = column;
+        this.service.sortDirection = direction;
+      */
+       console.log(event);
     }
 }
 
