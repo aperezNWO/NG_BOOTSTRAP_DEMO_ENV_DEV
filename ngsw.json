@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1716940237687,
+  "timestamp": 1716976247889,
   "index": "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/index.html",
   "assetGroups": [
     {
@@ -15,7 +15,7 @@
         "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/973.06b7e326cc1dccf3.js",
         "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/favicon.ico",
         "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/index.html",
-        "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/main.2a70550a8ea517a2.js",
+        "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/main.7b8a2ff340335fb9.js",
         "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/manifest.webmanifest",
         "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/polyfills.42e9309d206b4839.js",
         "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/runtime.e5aa92412ff5a48e.js",
@@ -48,7 +48,7 @@
   "hashTable": {
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/147.eae43b2ff0b68b15.js": "75ad21be3ef8fc935817cec0fac760c6bd80ef98",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/973.06b7e326cc1dccf3.js": "977d7356dc6c124a53aeffda49ab99206019a957",
-    "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/config.json": "a1c051859a24822ca6def9656191d10c78899922",
+    "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/config.json": "3a72210b71f85d156b05c1a8b1439901050ccfde",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/icons/icon-128x128.png": "f912963bdc6d5a38d8f1dd0afbaab2ce8d657acb",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/icons/icon-144x144.png": "b155fd5f2fd5d2ea7760721063003c4cd95fd783",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/icons/icon-152x152.png": "eae6e0f0c8afb8aaae339e2a569b43e9238e5e6c",
@@ -58,8 +58,8 @@
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/icons/icon-72x72.png": "aa88a6096bd973be7f6d7a5489bfa6bc2463f8c4",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/assets/icons/icon-96x96.png": "7fb8f59c30ce2ff12c700321a0b39e14b3dc8f95",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/index.html": "cc5dcf356a6ed8a10ea6447cf333ddad32f8fc38",
-    "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/main.2a70550a8ea517a2.js": "2ef56406aaaf1dffc0a9816842155ed57a9d51e0",
+    "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/index.html": "7c9323cf33fe6c7d349a624ec2bef077ca8db9af",
+    "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/main.7b8a2ff340335fb9.js": "4ce1fca62f64b8b9af44a390aefa80d226c1a26f",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/manifest.webmanifest": "4c4fda145c554fe9a7ed086f63fa914267022e67",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/polyfills.42e9309d206b4839.js": "601873d584973d4bc879bf2fbbeed0cbc7da682b",
     "https://apereznwo.github.io/NG_BOOTSTRAP_DEMO_ENV_DEV/runtime.e5aa92412ff5a48e.js": "4c6560a0d0af8b3c4a1563c964ffd87f746dd0f0",
