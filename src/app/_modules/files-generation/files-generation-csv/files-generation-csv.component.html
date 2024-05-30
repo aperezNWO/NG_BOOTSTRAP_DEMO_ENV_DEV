@@ -95,7 +95,7 @@
         <span class="col col-form-label">Loading...</span>
       }
     </div>
-  
+    <hr>
     <table class="table table-striped">
       <thead>
         <tr>
@@ -128,11 +128,10 @@
         }
       </tbody>
     </table>
-  
+    <hr>
     <div class="d-flex justify-content-between p-2">
       <ngb-pagination [collectionSize]="(total | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
       </ngb-pagination>
-  
       <select class="form-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
         <option [ngValue]="2">2 items per page</option>
         <option [ngValue]="4">4 items per page</option>
@@ -140,7 +139,6 @@
       </select>
     </div>
   </form>
-  <hr>
 </div>
 <!-- FIN TABLA NGBOOTSTRAP    -->
 <hr>
