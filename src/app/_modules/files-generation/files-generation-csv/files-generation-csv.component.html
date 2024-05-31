@@ -77,9 +77,62 @@
   </form>
   <!-- PANEL BUSQUEDA / FIN            -->
   <hr>  
-<!-- INICIO TABLA NGBOOTSTRAP -->
+<!-- INICIO TABLA NGBOOTSTRAP / LOG -->
+<!--
+  [[{ "id_Column"     :"1",
+      "nombreCompleto":"Pablo Alejandro P\u00E9rez Acosta",
+      "profesionOficio":"T\u00E9cnico Sistemas",
+      "ciudad":"USA"},
+-->
+<div align="center" style="padding-top:10px;">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col" sortable="nombreCompleto"    (sort)="onSort($event)">[Nombre Completo]</th>
+        <th scope="col" sortable="profesionOficio"   (sort)="onSort($event)">[Profesion Oficio]</th>
+        <th scope="col" sortable="ciudad"            (sort)="onSort($event)">[Ciudad]</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (personEntity of this.jsondata; track personEntity.id_Column ){
+        <tr>
+          <th scope="row">{{ personEntity.id_Column }}</th>
+          <td><ngb-highlight [result]="personEntity.nombreCompleto"  [term]="service.searchTerm" /></td>
+          <td><ngb-highlight [result]="personEntity.profesionOficio" [term]="service.searchTerm" /></td>
+          <td><ngb-highlight [result]="personEntity.ciudad"          [term]="service.searchTerm" /></td>
+        </tr>
+      }
+      <!--
+      @for (country of countries | async; track country.id) {
+        <tr>
+          <th scope="row">{{ country.id }}</th>
+          <td>
+            <img
+              [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag"
+              [alt]="'The flag of ' + country.name"
+              class="me-2"
+              style="width: 20px"
+            />
+            <ngb-highlight [result]="country.name" [term]="service.searchTerm" />
+          </td>
+          <td><ngb-highlight [result]="country.area | number" [term]="service.searchTerm" /></td>
+          <td><ngb-highlight [result]="country.population | number" [term]="service.searchTerm" /></td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="4" style="text-align: center">No countries found</td>
+        </tr>
+      }
+      -->
+    </tbody>
+  </table>
+</div>  
+
+<!-- INICIO TABLA NGBOOTSTRAP / COUNTRIES -->
 <div align="center" style="padding-top:10px;">
   <form>
+    <!-- INICIO PANEL DE BUSQUEDA -->
     <div class="mb-3 row">
       <label for="table-complete-search" class="col-xs-3 col-sm-auto col-form-label">Full text search:</label>
       <div class="col-xs-3 col-sm-auto">
@@ -95,6 +148,7 @@
         <span class="col col-form-label">Loading...</span>
       }
     </div>
+    <!-- FIN PANEL DE BUSQUEDA    -->
     <hr>
     <table class="table table-striped">
       <thead>
@@ -129,6 +183,7 @@
       </tbody>
     </table>
     <hr>
+    <!-- INIICO PAGINACION  -->
     <div class="d-flex justify-content-between p-2">
       <ngb-pagination [collectionSize]="(total | async)!" [(page)]="service.page" [pageSize]="service.pageSize">
       </ngb-pagination>
@@ -138,6 +193,7 @@
         <option [ngValue]="6">6 items per page</option>
       </select>
     </div>
+    <!-- FIN PAGINACION     -->
   </form>
 </div>
 <!-- FIN TABLA NGBOOTSTRAP    -->

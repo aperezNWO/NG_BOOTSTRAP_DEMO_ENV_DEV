@@ -33,6 +33,10 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     //--------------------------------------------------------------------------
     // PROPIEDADES - LISTADO
     //--------------------------------------------------------------------------
+    public jsondata    : any;
+    
+    public recordNumber: any;
+
     public csv_dataSource                          = new MatTableDataSource<PersonEntity>();
     // 
     public csv_displayedColumns                    : string[] = ['id_Column', 'ciudad','nombreCompleto'];
@@ -78,7 +82,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
       _P_FECHA_FIN        : ["2022-12-31"  , Validators.required],
     });
     //--------------------------------------------------------------------------
-    // ngbootstrap table
+    // ngbootstrap table / countries
     //--------------------------------------------------------------------------
     //
     public countries!: Observable<Country[]>;
@@ -141,15 +145,15 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
                     //
                     console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Return Values : [" + csv_data + "]");
                     //
-                    let jsondata     = JSON.parse(csv_data);
+                    this.jsondata     = JSON.parse(csv_data);
                     //
-                    let recordNumber = jsondata.length;
+                    this.recordNumber = this.jsondata.length;
                     //
-                    console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + recordNumber);
+                    console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + this.recordNumber);
                     //
-                    this.rf_textStatus        = "Se encontraton [" + recordNumber  + "] registros";
+                    this.rf_textStatus        = "Se encontraton [" + this.recordNumber  + "] registros";
                     //
-                    this.csv_dataSource           = new MatTableDataSource<PersonEntity>(jsondata);
+                    this.csv_dataSource           = new MatTableDataSource<PersonEntity>(this.jsondata);
                     this.csv_dataSource.paginator = this.csv_paginator;
                   },
                   error           : (err: Error)      => {
