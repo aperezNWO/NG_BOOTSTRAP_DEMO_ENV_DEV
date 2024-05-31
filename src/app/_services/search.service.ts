@@ -2,10 +2,11 @@
 import { Injectable, PipeTransform                } from '@angular/core';
 import { DecimalPipe                              } from '@angular/common';
 import { Country                                  } from '../_models/country';
+import { COUNTRIES                                } from '../_models/countries';
 import { SortColumn, SortDirection                } from './sortable.directive';
 import { BehaviorSubject, Observable, of, Subject } from 'rxjs';
 import { debounceTime, delay, switchMap, tap      } from 'rxjs/operators';
-import { COUNTRIES                                } from '../_models/countries';
+
 
 interface SearchResult {
 	countries: Country[];
@@ -44,7 +45,7 @@ function matches(country: Country, term: string, pipe: PipeTransform) {
 @Injectable({
   providedIn: 'root'
 })
-export class DemoService {
+export class CountrySearchService {
 
 	private _loading$   = new BehaviorSubject<boolean>(true);
 	private _search$    = new Subject<void>();

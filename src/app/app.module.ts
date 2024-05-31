@@ -1,6 +1,6 @@
 import { Injectable, NgModule                       } from '@angular/core';
 import { APP_INITIALIZER,ErrorHandler, isDevMode    } from '@angular/core';
-import { DatePipe, DecimalPipe                        } from '@angular/common';
+import { DatePipe, DecimalPipe                      } from '@angular/common';
 import { ServiceWorkerModule             } from '@angular/service-worker';
 import { FormsModule                     } from '@angular/forms';
 import { MatListModule                   } from '@angular/material/list';
@@ -17,7 +17,6 @@ import { HTTP_INTERCEPTORS               } from '@angular/common/http';
 import { RouterModule, Routes            } from '@angular/router';
 import { HashLocationStrategy            } from '@angular/common';
 import { LocationStrategy                } from '@angular/common';
-import { NgbModule                       } from '@ng-bootstrap/ng-bootstrap'
 import { AppComponent                    } from './app.component';
 import { HomeWebComponent                } from './_modules/home/home-web/home-web.component';
 import { PageNotFoundComponent           } from './_modules/home/page-not-found/page-not-found.component';
@@ -49,13 +48,15 @@ import { MiscelaneousComponent           } from './_modules/miscelaneous/miscela
 import { UnitTestingComponent            } from './_modules/_unitttesting/unit-testing.component';
 import { AppRoutingModule                } from './app-routing.module';
 import { LogType                         } from './_models/entityInfo.model';
-import { MCSDService                     } from './_services/mcsd.service';
-import { _ConfigService                  } from './_services/-config.service';
 import { finalize, tap                   } from 'rxjs';
 import { NgxSignaturePadModule           } from '@eve-sama/ngx-signature-pad';
 import { NgbHighlight                        } from '@ng-bootstrap/ng-bootstrap';
 import { NgbPaginationModule, NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
-import { DemoService } from './_services/country.service';
+import { NgbModule                           } from '@ng-bootstrap/ng-bootstrap'
+import { MCSDService                     } from './_services/mcsd.service';
+import { _ConfigService                  } from './_services/-config.service';
+import { CountrySearchService            } from './_services/search.service';
+
 //
 const routes : Routes = [
  
@@ -157,7 +158,7 @@ export class CustomErrorHandler implements ErrorHandler {
             multi     : true
           }
         ],
-        DatePipe, DemoService, DecimalPipe,
+        DatePipe, CountrySearchService, DecimalPipe,
     ],
     bootstrap: [AppComponent],
     imports: [

@@ -13,7 +13,7 @@ import { FormsModule                       } from '@angular/forms';
 import { NgbHighlight, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { Country                           } from '../../../_models/country';
 import { NgbdSortableHeader, SortEvent     } from '../../../_services/sortable.directive';
-import { DemoService                       } from 'src/app/_services/country.service';
+import { CountrySearchService              } from 'src/app/_services/search.service';
 //
 @Component({
   selector: 'app-files-generation-csv',
@@ -96,7 +96,7 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
                  public mcsdService        : MCSDService
                , public formBuilder        : FormBuilder
                , public customErrorHandler : CustomErrorHandler
-               , public service            : DemoService
+               , public service            : CountrySearchService
               ) 
     {
       // ngbootstrap table 
