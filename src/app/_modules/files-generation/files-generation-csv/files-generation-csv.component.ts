@@ -6,14 +6,6 @@ import { Observable                                    } from 'rxjs';
 import { MCSDService                                   } from '../../../_services/mcsd.service';
 import { CustomErrorHandler                            } from '../../../app.module';
 import { PersonEntity, SearchCriteria, _languageName   } from '../../../_models/entityInfo.model';
-// NGBOOTSTRAP TABLE
-import { AsyncPipe, DecimalPipe            } from '@angular/common';
-import { QueryList, ViewChildren           } from '@angular/core';
-import { FormsModule                       } from '@angular/forms';
-import { NgbHighlight, NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { Country                           } from '../../../_models/country';
-import { NgbdSortableHeader, SortEvent     } from '../../../_services/sortable.directive';
-import { CountrySearchService              } from 'src/app/_services/search.service';
 //
 @Component({
   selector: 'app-files-generation-csv',
@@ -33,10 +25,6 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
     //--------------------------------------------------------------------------
     // PROPIEDADES - LISTADO
     //--------------------------------------------------------------------------
-    public jsondata    : any;
-    
-    public recordNumber: any;
-
     public csv_dataSource                          = new MatTableDataSource<PersonEntity>();
     // 
     public csv_displayedColumns                    : string[] = ['id_Column', 'ciudad','nombreCompleto'];
@@ -82,26 +70,11 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
       _P_FECHA_FIN        : ["2022-12-31"  , Validators.required],
     });
     //--------------------------------------------------------------------------
-    // ngbootstrap table / countries
-    //--------------------------------------------------------------------------
-    //
-    public countries!: Observable<Country[]>;
-	  public total!:     Observable<number>;
-
-  	@ViewChildren(NgbdSortableHeader) headers: QueryList<NgbdSortableHeader> | undefined;
-    //--------------------------------------------------------------------------
     // EVENT HANDLERS FORMIULARIO 
     //--------------------------------------------------------------------------
-    constructor( 
-                 public mcsdService        : MCSDService
-               , public formBuilder        : FormBuilder
-               , public customErrorHandler : CustomErrorHandler
-               , public service            : CountrySearchService
-              ) 
-    {
-      // ngbootstrap table 
-      this.countries = service.countries;
-	  	this.total     = service.total;
+    //
+    constructor(public mcsdService: MCSDService, public formBuilder: FormBuilder, public customErrorHandler : CustomErrorHandler) {
+      //
     }
     //
     ngOnInit(): void {
@@ -145,15 +118,15 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
                     //
                     console.log(FilesGenerationCSVComponent.PageTitle + " - [SET CSV DATA] - Return Values : [" + csv_data + "]");
                     //
-                    this.jsondata     = JSON.parse(csv_data);
+                    let jsondata     = JSON.parse(csv_data);
                     //
-                    this.recordNumber = this.jsondata.length;
+                    let recordNumber = jsondata.length;
                     //
-                    console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + this.recordNumber);
+                    console.log(FilesGenerationCSVComponent.PageTitle + ' - [SET CSV DATA] - RecordNumber ' + recordNumber);
                     //
-                    this.rf_textStatus        = "Se encontraton [" + this.recordNumber  + "] registros";
+                    this.rf_textStatus        = "Se encontraton [" + recordNumber  + "] registros";
                     //
-                    this.csv_dataSource           = new MatTableDataSource<PersonEntity>(this.jsondata);
+                    this.csv_dataSource           = new MatTableDataSource<PersonEntity>(jsondata);
                     this.csv_dataSource.paginator = this.csv_paginator;
                   },
                   error           : (err: Error)      => {
@@ -331,24 +304,6 @@ export class FilesGenerationCSVComponent implements OnInit, AfterViewInit {
       this.rf_formSubmit        = true;
       //
       this.SetCSVData();
-    }
-    //--------------------------------------------------------------------------
-    // ngbootstrap table
-    //--------------------------------------------------------------------------
-    onSort(event : Event) {
-
-      /*onSort({ column, direction }: SortEvent) {
-        // resetting other headers
-        this.headers?.forEach((header) => {
-          if (header.sortable !== column) {
-            header.direction = '';
-          }
-        });
-    
-        this.service.sortColumn = column;
-        this.service.sortDirection = direction;
-      */
-       console.log(event);
     }
 }
 
